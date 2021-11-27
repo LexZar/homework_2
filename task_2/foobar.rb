@@ -8,13 +8,13 @@ num2 = gets.to_i
 
 def foobar(num1,num2)
   if num1 == 20 
-     result = num2 
+    result = num2 
   elsif num2 == 20
-     result = num1  
+    result = num1  
   else
-     result = num1 + num2  
+    result = num1 + num2  
   end
-     puts result
+    puts result
 end
 
 foobar(num1,num2)
