@@ -10,13 +10,13 @@ puts "напишите свой возраст"
 age = gets.to_i
 
 def greeting(name,last_name,age)
-if age < 18
-  result = "Привет, #{name} #{last_name}.Тебе меньше 18 лет,но учится программировать никогда не рано."
-  puts result
-else 
-  result = "Привет, #{name} #{last_name}.Самое время занятся делом!"
-  puts result
-end
+  if age < 18
+    result = "Привет, #{name} #{last_name}.Тебе меньше 18 лет,но учится программировать никогда не рано."
+    puts result
+  else 
+    result = "Привет, #{name} #{last_name}.Самое время занятся делом!"
+    puts result
+  end
 end
 
 greeting(name,last_name,age) 
