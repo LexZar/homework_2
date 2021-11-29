@@ -1,6 +1,8 @@
 require 'rspec'
 
-def foobar(num1,num2)
+def foobar
+  num1 = gets.to_i
+  num2 = gets.to_i
   if num1 == 20 
     result = num2 
     result
@@ -13,14 +15,19 @@ def foobar(num1,num2)
   end 
 end
 
-RSpec.describe "Foobar methods" do
-  it "if the first number is 20" do
-    expect(foobar(20,10)).to eq(10)  
+RSpec.describe "#Foobar methods" do
+  it "#if the first number is 20" do
+    allow_any_instance_of(Kernel).to receive(:gets).and_return(20,10)
+    expect(foobar).to eq(10)   
   end
-  it "if the second number is 20" do
-    expect(foobar(10,20)).to eq(10)  
+  
+  it "#if the second number is 20" do
+    allow_any_instance_of(Kernel).to receive(:gets).and_return(10,20)
+    expect(foobar).to eq(10)   
   end
-  it "no number is equal to 20" do
-    expect(foobar(3,5)).to eq(8) 
+
+  it "#no number is equal to 20" do
+    allow_any_instance_of(Kernel).to receive(:gets).and_return(3,5)
+    expect(foobar).to eq(8)   
   end
 end

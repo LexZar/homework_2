@@ -2,14 +2,14 @@
 #  *Привет, {имя} {фамилия}. Тебе меньше 18 лет, но начать учиться программировать никогда не рано*
 #  *Привет, {имя} {фамилия}. Самое время заняться делом!*
 
-puts "напишите ваше имя"
-name = gets.to_s
-puts "напишите вашу фамилию"
-last_name = gets.to_s
-puts "напишите свой возраст"
-age = gets.to_i
-
-def greeting(name,last_name,age)
+def greeting
+  puts "напишите ваше имя"
+  name = gets.to_s
+  puts "напишите вашу фамилию"
+  last_name = gets.to_s
+  puts "напишите свой возраст"
+  age = gets.to_i
+  
   if age < 18
     result = "Привет, #{name} #{last_name}.Тебе меньше 18 лет,но учится программировать никогда не рано."
     puts result
@@ -19,4 +19,4 @@ def greeting(name,last_name,age)
   end
 end
 
-greeting(name,last_name,age) 
+greeting
