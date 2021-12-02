@@ -6,7 +6,7 @@ def foobar
   num1 = gets.to_i
   puts "введите второе число"
   num2 = gets.to_i
-  
+
   if num1 == 20 
     result = num2 
   elsif num2 == 20
@@ -14,7 +14,8 @@ def foobar
   else
     result = num1 + num2  
   end
-    puts result
+    return @result = result
 end
 
 foobar
+puts @result

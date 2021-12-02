@@ -12,11 +12,11 @@ def greeting
   
   if age < 18
     result = "Привет, #{name} #{last_name}.Тебе меньше 18 лет,но учится программировать никогда не рано."
-    puts result
   else 
     result = "Привет, #{name} #{last_name}.Самое время занятся делом!"
-    puts result
   end
+  return @result = result
 end
 
 greeting
+puts @result
