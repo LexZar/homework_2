@@ -1,19 +1,5 @@
 require 'rspec'
-
-def foobar
-  num1 = gets.to_i
-  num2 = gets.to_i
-  if num1 == 20 
-    result = num2 
-    result
-  elsif num2 == 20 
-    result = num1
-    result         
-  else
-    result = num1 + num2 
-    result
-  end 
-end
+require './foobar.rb'
 
 RSpec.describe "#Foobar methods" do
   it "#if the first number is 20" do
