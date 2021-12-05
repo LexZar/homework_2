@@ -21,7 +21,7 @@ def pokemon
   input = gets.to_i
  
   loop do 
-    if input != -1
+    if input != -1 && input > 0
       while count <= input do
         pokemon = {"name" => names ,"color" => colors}
         pokemons.push(pokemon)
