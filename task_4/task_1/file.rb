@@ -20,7 +20,7 @@ def where
 end
 
 def update (id,text)
- 
+
 end
 
 def delete
