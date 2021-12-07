@@ -16,7 +16,7 @@ class Pokemon
   
   def init 
     input_pokemons
-    pokemons = []
+    @pokemons = []
     count = 1 
         
     while count <= @input do
@@ -27,13 +27,17 @@ class Pokemon
           if @color != "q"
             val_color = @color
             pokemon = {"name" => val_name ,"color" => val_color}
-            pokemons.push(pokemon)
+            @pokemons.push(pokemon)
             count +=1  
           else break
           end
         else break
         end  
       end
-        return puts pokemons
+        return @pokemons
     end
+
+  def result
+      puts @pokemons
   end
+end
