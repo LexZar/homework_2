@@ -2,9 +2,12 @@ require 'rspec'
 require './CashMachine.rb'
 
 RSpec.describe "Class CachMachine methods" do
-    it "#deposit methods" do
+    it "#max_deposit methods" do
     atm = CashMachine.new
-    allow_any_instance_of(Kernel).to receive(:gets).and_return("d")
-    expect(atm.deposit).to eq({100,200,500,1000})
+
+    # max_capacity = 8000000.0 
+    # actuall = 6000000.0
+   
+    expect(atm.max_deposit).to eq(2000000)
     end
 end
