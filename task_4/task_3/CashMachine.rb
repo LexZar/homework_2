@@ -6,8 +6,8 @@ class CashMachine
     def max_deposit
       max_capacity = 8000000.0 
       actuall_capacity_atm= File.new("actuall_capacity_atm.txt", "r:UTF-8")
-      @actuall = actuall_capacity_atm.read.to_f
-      @max_deposit = max_capacity - @actuall
+      actuall = actuall_capacity_atm.read.to_f
+      @max_deposit = max_capacity - actuall
     end
 
     def deposit
@@ -71,9 +71,9 @@ class CashMachine
         f_balance = File.new("balance.txt", "r:UTF-8")
         lines = f_balance.read.chomp
         f_balance.close
-        puts "Ваш баланс: #{lines}"
+        # puts "Ваш баланс: #{lines}"
       else
-        puts "Ваш баланс: 100"
+        # puts "Ваш баланс: 100"
       end
     end
 

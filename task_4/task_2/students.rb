@@ -30,7 +30,6 @@ def result
   else 
     puts "Данных в файле нет!"
   end 
-
   f_result.close
 end
 
@@ -53,9 +52,7 @@ def list_students
     f_results.close
     break if age.to_i == -1 || @students.empty?
   end
-
   result
-
 end
 
 all_students
