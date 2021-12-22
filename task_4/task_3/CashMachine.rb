@@ -4,10 +4,10 @@ class CashMachine
     end
     
     def max_deposit
-      max_capacity = 8000000.0 
+      @max_capacity = 8000000.0 
       actuall_capacity_atm= File.new("actuall_capacity_atm.txt", "r:UTF-8")
-      actuall = actuall_capacity_atm.read.to_f
-      @max_deposit = max_capacity - actuall
+      @actuall = actuall_capacity_atm.read.to_f
+      @max_deposit = @max_capacity - @actuall
     end
 
     def deposit
@@ -34,7 +34,7 @@ class CashMachine
             puts "Банкомат  не может принять такую большую сумму. Вы можете внести не более #{@max_deposit}"
             end
           else
-          puts "Банкомат принимает только купюры номиналом 50,100,200,500,1000,2000,5000"
+          puts "Банкомат может принять сумму только купюрами номиналом 50,100,200,500,1000,2000,5000."
           end 
     end
   
@@ -43,27 +43,31 @@ class CashMachine
       if File.exist?("balance.txt")
         f_balance = File.new("balance.txt", "r:UTF-8")
         balance = f_balance.read.to_f
-        puts "Ваш баланс #{balance}.Сколько Вы хотите снять?"
+        puts "Ваш баланс #{balance}.Сколько Вы хотите снять? Банкомат выдает только купюры номиналом 50,100,200,500,1000,2000,5000"
         withdraw = gets.to_f
         f_balance.close
       else
         balance = 100.0
-        puts "Ваш баланс #{balance}.Сколько Вы хотите снять?"
+        puts "Ваш баланс #{balance}.Сколько Вы хотите снять? Банкомат выдает только купюры номиналом 50,100,200,500,1000,2000,5000"
         withdraw = gets.to_f
         f_balance.close
-      end 
-      if withdraw <= @actuall 
-        if withdraw > 0 && withdraw <= balance
-          new_balance = balance - withdraw
-          f_balance = File.new("balance.txt", "w:UTF-8")
-          f_balance.puts(new_balance)
-          f_balance.close
+      end
+      if withdraw % 50 == 0 || withdraw % 100 == 0 || withdraw % 200 == 0 || withdraw % 500 == 0 || withdraw % 1000 == 0 || withdraw % 2000 == 0 || withdraw % 5000 == 0 
+        if withdraw <= @actuall 
+          if withdraw > 0 && withdraw <= balance
+            new_balance = balance - withdraw
+            f_balance = File.new("balance.txt", "w:UTF-8")
+            f_balance.puts(new_balance)
+            f_balance.close
+          else
+            puts "Недостаточно средств на вашем счету"
+          end
         else
-          puts "Недостаточно средств на вашем счету"
+          puts "В банкомате нет столько денежных средств. Для снятия доступно #{@actuall} "
         end
       else
-        puts "В банкомате нет столько денежных средств. Для снятия доступно #{@actuall} "
-      end   
+        puts " Банкомат выдает только купюры номиналом 50,100,200,500,1000,2000,5000.Введите другую сумму."
+      end         
     end
   
     def balance
