@@ -2,11 +2,19 @@ class CashMachine
     def initialize
       puts "Введите:\n D - для того что бы положить деньги\n W - для того что бы снять деньги\n B - для просмотра баланса\n Q - для выхода"
     end
-    
-    def max_deposit
-      @max_capacity = 8000000.0 
+
+    def actuall_capacity_atm
       actuall_capacity_atm= File.new("actuall_capacity_atm.txt", "r:UTF-8")
       @actuall = actuall_capacity_atm.read.to_f
+    end
+
+    def max_capacity
+      @max_capacity = 8000000.0 
+    end
+
+    def max_deposit
+      actuall_capacity_atm
+      max_capacity 
       @max_deposit = @max_capacity - @actuall
     end
 
