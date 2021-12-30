@@ -9,8 +9,8 @@ class Server
 		bancomat = CashMachine.new 
 		req = Rack::Request.new(env)
 		
-		case req.path_info	
-		when '/deposit?value='
+		case req.path_info		
+		when '/deposit?value'
 			[200, {'Content-Type' => 'text/html'}, ["deposit "]]
 		when '/withdraw?value='
 			[200, {'Content-Type' => 'text/html'}, ["withdraw "]]
